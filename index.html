@@ -819,7 +819,11 @@
          }
 
         function showNextQuestion() {
-            if (isReviewingFromResults) {
+            // Hide calculator if it's open
+            if (calculatorUI.classList.contains('visible')) {
+                toggleCalculator();
+            }
+             if (isReviewingFromResults) {
                 if (currentQuestionIndex < questions.length - 1) {
                     loadQuestion(currentQuestionIndex + 1, true);
                 }
@@ -836,6 +840,11 @@
         }
 
         function showPrevQuestion() {
+            // Hide calculator if it's open
+            if (calculatorUI.classList.contains('visible')) {
+                toggleCalculator();
+            }
+            
              if (isReviewingFromResults) {
                  if (currentQuestionIndex > 0) {
                      loadQuestion(currentQuestionIndex - 1, true);
@@ -902,6 +911,10 @@
                     reviewScreen.classList.add('hidden');
                     reviewScreen.classList.remove('flex');
                     showExamScreen();
+                    // Hide calculator if it's open
+                    if (calculatorUI.classList.contains('visible')) {
+                        toggleCalculator();
+                    }
                     loadQuestion(index);
                 };
                 reviewGrid.appendChild(button);
@@ -922,102 +935,13 @@
                  button.onclick = () => {
                      navigatorModal.classList.remove('flex');
                      navigatorModal.classList.add('hidden');
+                     // Hide calculator if it's open
+                     if (calculatorUI.classList.contains('visible')) {
+                         toggleCalculator();
+                     }
                      const targetIndex = parseInt(button.dataset.questionIndex, 10);
                      loadQuestion(targetIndex, isReviewingFromResults);
                  };
-                 navigatorGrid.appendChild(button);
-             });
-         }
-
-        function updateNavigatorButtons() {
-            if (!navigatorGrid) return;
-            const buttons = navigatorGrid.querySelectorAll('button');
-            buttons.forEach(button => {
-                const index = parseInt(button.dataset.questionIndex, 10);
-                button.classList.remove('nav-answered', 'nav-current', 'nav-flagged');
-                if (userAnswers[index]) button.classList.add('nav-answered');
-                if (index === currentQuestionIndex) button.classList.add('nav-current');
-                if (flaggedQuestions[index]) button.classList.add('nav-flagged');
-            });
-        }
-
-         function updateNavigatorHighlight() {
-             if (!navigatorGrid) return;
-             const buttons = navigatorGrid.querySelectorAll('button');
-             buttons.forEach(button => {
-                 const index = parseInt(button.dataset.questionIndex, 10);
-                 button.classList.remove('nav-current');
-                 if (index === currentQuestionIndex) button.classList.add('nav-current');
-             });
-         }
-
-        function showResultsScreen() {
-            examEndTime = examEndTime || new Date();
-            recordTimeSpent(currentQuestionIndex);
-            stopTimer();
-
-            examScreen.classList.add('hidden');
-            reviewScreen.classList.add('hidden');
-            reviewScreen.classList.remove('flex');
-            resultsScreen.classList.remove('hidden');
-            resultsScreen.classList.add('flex');
-            setupScreen.classList.add('hidden');
-            appContainer.classList.add('flex', 'flex-col');
-
-            let score = 0;
-            resultsDetailsGrid.innerHTML = ''; 
-
-            questions.forEach((qData, index) => {
-                const userAnswer = userAnswers[index];
-                const correctAnswer = qData.correctAnswer;
-                const isCorrect = userAnswer !== null && userAnswer !== undefined && userAnswer === correctAnswer;
-                if (isCorrect) score++;
-
-                const timeSpentMs = questionTimes[index] || 0;
-                const timeSpentSec = Math.round(timeSpentMs / 1000);
-
-                const summaryItem = document.createElement('div');
-                summaryItem.classList.add('result-summary-item');
-
-                const summaryBox = document.createElement('div');
-                summaryBox.classList.add('result-summary-box');
-                if (userAnswer === null || userAnswer === undefined) {
-                    summaryBox.classList.add('not-answered-box');
-                } else {
-                    summaryBox.classList.add(isCorrect ? 'correct-box' : 'incorrect-box');
-                }
-                summaryBox.dataset.index = index;
-                summaryBox.title = `Click to review Question ${index + 1}`;
-
-                const timeDisplay = document.createElement('span');
-                timeDisplay.classList.add('time-display-in-box');
-                timeDisplay.textContent = `${timeSpentSec}s`;
-                summaryBox.appendChild(timeDisplay);
-
-                const numberLabel = document.createElement('div');
-                numberLabel.classList.add('question-number-label');
-                numberLabel.textContent = `Q${index + 1}`;
-
-                summaryBox.addEventListener('click', () => {
-                    revisitQuestionFromResults(index);
-                });
-
-                summaryItem.appendChild(summaryBox);
-                summaryItem.appendChild(numberLabel);
-                resultsDetailsGrid.appendChild(summaryItem);
-            });
-
-            scoreEl.textContent = score;
-            totalQuestionsResultsEl.textContent = questions.length;
-            const timeDiff = examEndTime - examStartTime;
-            timeTakenEl.textContent = formatTimeDifference(timeDiff);
-        }
-
-
-        function revisitQuestionFromResults(index) {
-            resultsScreen.classList.add('hidden');
-            resultsScreen.classList.remove('flex');
-            showExamScreen();
             loadQuestion(index, true);
             backToResultsButton.classList.remove('hidden');
         }
@@ -1333,7 +1257,16 @@
             isReviewingFromResults = false; 
             showResultsScreen(); 
         });
-        navigatorButton.addEventListener('click', () => { recordTimeSpent(currentQuestionIndex); updateNavigatorButtons(); navigatorModal.classList.remove('hidden'); navigatorModal.classList.add('flex'); });
+        navigatorButton.addEventListener('click', () => { 
+            // Hide calculator if it's open
+            if (calculatorUI.classList.contains('visible')) {
+                toggleCalculator(); 
+            }
+            recordTimeSpent(currentQuestionIndex); 
+            updateNavigatorButtons(); 
+            navigatorModal.classList.remove('hidden'); 
+            navigatorModal.classList.add('flex'); 
+        });
         closeModalButton.addEventListener('click', () => { navigatorModal.classList.remove('flex'); navigatorModal.classList.add('hidden'); if (!isReviewingFromResults) questionStartTime = Date.now(); });
         navigatorModal.addEventListener('click', (event) => { if (event.target === navigatorModal) closeModalButton.click(); });
         flagButton.addEventListener('click', toggleFlag);
