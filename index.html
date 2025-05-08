@@ -535,33 +535,33 @@
             `<img src="https://ik.imagekit.io/mwp/zicecd90uyroazenrofco1avih0z.png?updatedAt=1746594431926" alt="Garden Layout Plan" style="width:100%; max-width:500px; margin:auto; display:block; border: 1px solid #ccc;"> <p class="text-black text-center mt-2">The diagram on the left shows a schematic of a square garden plot of land. The schematic does not show measurements in metres, but instead shows them in centimetres (not to scale). The square ABCD, in which DX = XY = YC = AW, has area 81 square centimetres</p>`
         ];
         const questions = [
-            { 
-                passageIndex: 0, 
+            {
+                passageIndex: 0,
                 text: "Find the area of the unshaded part (the unshaded region in the leftmost diagram).",
-                options: ["36 cm²", "45 cm²", "54 cm²", "81 cm²", "27 cm²"], 
-                correctAnswer: "E", 
-                explanation: "Assuming the overall square ABCD has a side length of 9cm (derived from other questions, e.g., Q4 where darkest area is 9cm² implying 3x3, and if overall is a square, this fits). If the unshaded region YCBZ has width YC = 3cm (making DC = DX+XY+YC = 3+3+3 = 9) and height CB = 9cm, its area is YC × CB = 3cm × 9cm = 27 cm²." 
+                options: ["36 cm²", "45 cm²", "54 cm²", "81 cm²", "27 cm²"],
+                correctAnswer: "E",
+                explanation: "Thought Process:\nUnderstand the Diagram's Structure: The diagram shows the square ABCD divided into three vertical rectangular strips. The top edge DC is divided by X and Y. The bottom edge AB is divided by W and Z. The vertical lines XW and YZ connect these points.\nIdentify the \"Unshaded\" Region: The term \"unshaded\" refers to the rightmost strip, YCBZ, which is shaded lightest in the diagram.\nDetermine Dimensions:\nThe width of this strip is YC. We know YC = 3 cm.\nThe height of this strip is the side of the square, CB = 9 cm.\nCalculate Area: The region YCBZ is a rectangle. Area = width × height = YC × CB = 3 cm × 9 cm = 27 cm².\nExplanation: The diagram illustrates the square ABCD (side length 9 cm) divided into three vertical rectangular regions. The segments DX, XY, and YC along the top edge DC are each 3 cm. The vertical dividing lines connect X to W and Y to Z on the bottom edge AB, meaning AW, WZ, and ZB are also 3 cm each. The \"unshaded part\" refers to the rightmost rectangle, YCBZ. Its width is YC = 3 cm and its height is CB = 9 cm. Therefore, its area is 3 cm × 9 cm = 27 cm²."
             },
-            { 
-                passageIndex: 0, 
-                text: "What is the area of trapezium WAZY?", 
-                options: ["18 cm²", "24 cm²", "336 cm²", "36 cm²", "54 cm²"], 
-                correctAnswer: "D", 
-                explanation: "The term 'trapezium WAZY' is unusual for the L-shaped region. Assuming it refers to a rectangular area to match an option. If the overall square ABCD is 9cm x 9cm, and if WAZY is interpreted as a rectangle, an area of 36 cm² could be achieved with dimensions like 6cm × 6cm or 4cm × 9cm. For example, if AW=4cm and AZ=9cm (making Z coincide with B), the area is 36 cm²."
+            {
+                passageIndex: 0,
+                text: "What is the area of trapezium WAZY?",
+                options: ["18 cm²", "24 cm²", "336 cm²", "36 cm²", "54 cm²"],
+                correctAnswer: "D",
+                explanation: "Thought Process (to match the answer): This question requires a specific interpretation of points W and Z.\nIdentify Vertices:\nA: The corner of the square, A=(0,0).\nW: For this question, interpret W using the given length AW=3cm as being on the side AD. So, W=W AD =(0,3).\nY: From the division of side DC, Y=(6,9).\nZ: From the diagram's division of the bottom edge AB, Z is such that AZ = AW (on AB) + WZ (on AB) = 3 cm + 3 cm = 6 cm. So, Z=Z AB =(6,0). (This Z is directly below Y).\nPlot the Points and Identify Parallel Sides:\nW=(0,3), A=(0,0), Z=(6,0), Y=(6,9).\nSide AW connects (0,0) to (0,3), which is a vertical segment of length 3 along the y-axis.\nSide ZY connects (6,0) to (6,9), which is a vertical segment of length 9.\nSince AW and ZY are both vertical, they are parallel. This confirms the shape is a trapezium.\nCalculate Dimensions for Trapezium Area:\nLength of parallel side AW = 3 cm.\nLength of parallel side ZY = 9 cm.\nThe perpendicular height between these parallel sides is the horizontal distance between the line x=0 (containing AW) and the line x=6 (containing ZY). Height = 6−0=6 cm.\nCalculate Area: Area of a trapezium = 0.5×(sum of parallel sides)×height. Area = 0.5×(AW+ZY)×6=0.5×(3+9)×6=0.5×12×6=36 cm².\nExplanation: For this question, we interpret the point W as lying on the side AD such that AW = 3 cm (so W=(0,3), assuming A=(0,0)). Point A is (0,0). Point Y is on DC at (6,9). Point Z is on AB at (6,0) (derived from the diagram's equal divisions of AB). The vertices of the trapezium are W(0,3), A(0,0), Z(6,0), and Y(6,9). The side AW (length 3 cm) is parallel to the side ZY (length 9 cm). The perpendicular distance (height) between these parallel sides is 6 cm. The area of trapezium WAZY is 0.5×(3 cm+9 cm)×6 cm=0.5×12 cm×6 cm=36 cm²."
             },
-            { 
-                passageIndex: 0, 
-                text: "What is the area of XCB?", 
-                options: ["6 cm²", "9 cm²", "18 cm²", "21 cm²", "27 cm²"], 
-                correctAnswer: "E", 
-                explanation: "Assume ABCD is a square with side 9cm, so the base of triangle XCB, which is CB, is 9cm. If point X is on DC such that DX = 3cm (consistent with interpretations for other questions, making the darkest square 3x3), then XC = DC - DX = 9cm - 3cm = 6cm. The area of triangle XCB is 0.5 × base × height = 0.5 × CB × XC = 0.5 × 9cm × 6cm = 27 cm²." 
+            {
+                passageIndex: 0,
+                text: "What is the area of XCB?",
+                options: ["6 cm²", "9 cm²", "18 cm²", "21 cm²", "27 cm²"],
+                correctAnswer: "E",
+                explanation: "Thought Process:\nIdentify Vertices:\nX: On side DC, DX = 3 cm. So X=(3,9).\nC: Corner of the square, C=(9,9).\nB: Corner of the square, B=(9,0).\nChoose a Base and Find its Length:\nLet's choose CB as the base. C=(9,9) and B=(9,0). This is a vertical segment. Length CB = 9 cm.\nDetermine the Height: The height corresponding to base CB is the perpendicular distance from point X to the line containing CB. The line CB is the vertical line x=9. Point X is (3,9). Height = horizontal distance from x=3 to x=9, which is |9−3|=6 cm.\nCalculate Area: Area of a triangle = 0.5×base×height. Area = 0.5×CB×(height from X)=0.5×9 cm×6 cm=27 cm².\n(Alternative base): Choose XC as the base. X=(3,9) and C=(9,9). This is a horizontal segment. Length XC = 9−3=6 cm. The height is the perpendicular distance from B(9,0) to the line y=9, which is |9−0|=9 cm. Area = 0.5×6 cm×9 cm=27 cm².\nExplanation: The triangle XCB has vertices X(3,9), C(9,9), and B(9,0). If we take CB as the base, its length is 9 cm (the side of the square). The height of the triangle, relative to this base, is the perpendicular distance from point X to the line containing CB (the line x=9). This distance is 9 cm−3 cm=6 cm. The area of triangle XCB is 0.5×base×height=0.5×9 cm×6 cm=27 cm²."
             },
-            { 
-                passageIndex: 0, 
-                text: "What is the area of the fraction of the square which shaded darkest?", 
-                options: ["9 cm²", "12 cm²", "18 cm²", "27 cm²", "36 cm²"], 
-                correctAnswer: "C", 
-                explanation: "The darkest shaded region is DXW. If this region is a rectangle with an area of 18 cm², possible dimensions fitting within a larger square (e.g., a 9cm x 9cm square for ABCD) could be 3cm × 6cm (e.g., DX=3cm, DW=6cm or vice-versa)." 
+            {
+                passageIndex: 0,
+                text: "What is the area of the fraction of the square which shaded darkest? (Interpreted as: What is the area of the darkest shaded region?)",
+                options: ["9 cm²", "12 cm²", "18 cm²", "27 cm²", "36 cm²"],
+                correctAnswer: "C",
+                explanation: "Thought Process (to match the answer): This requires a specific interpretation of the \"darkest region DXW\", different from the leftmost strip in the diagram used for Q1.\nIdentify Dimensions for the Darkest Region:\nDX: This segment is on DC and has length 3 cm. This will be the width of the region.\nAW = 3 cm: For this question, interpret W as a point on side AD such that AW = 3 cm. So, W = W AD =(0,3) (assuming A=(0,0), D=(0,9)).\nDW: The segment DW is part of side AD. Its length is AD - AW = 9 cm−3 cm=6 cm. This will be the height of the region.\nDefine the Region: The \"darkest shaded region DXW\" is interpreted here as a rectangle with width DX and height DW.\nCalculate Area: Area = width × height = DX × DW = 3 cm×6 cm=18 cm².\nExplanation: The darkest shaded region is described in relation to points D, X, and W. We know DX = 3 cm. The condition AW = 3 cm is used here to define a point W on the side AD. If A is at (0,0) and D is at (0,9), then W is at (0,3). The length of the segment DW is therefore AD - AW = 9 cm−3 cm=6 cm. The darkest region is interpreted as a rectangle with sides DX (length 3 cm) and DW (length 6 cm). Its area is 3 cm×6 cm=18 cm².\n(Note: This interpretation differs from considering the leftmost 3×9 strip of the diagram, which would have an area of 27 cm². To arrive at 18 cm², the height of the darkest region is taken as DW=6cm).\nImportant Note on Interpretation: These questions, particularly Q2 and Q4, rely on specific interpretations of how the point W (from AW=3cm) is used. The diagram itself suggests W is on the bottom edge AB, dividing it into 3cm segments. However, to arrive at the provided answers for Q2 and Q4, W is interpreted as being on the side AD for defining heights or trapezium vertices. Good problem sets usually avoid such ambiguities. When faced with such problems, try to see if an alternative, consistent interpretation of the given information can lead to one of the provided options."
             }
         ];
 
@@ -942,6 +942,98 @@
                      const targetIndex = parseInt(button.dataset.questionIndex, 10);
                      loadQuestion(targetIndex, isReviewingFromResults);
                  };
+                 navigatorGrid.appendChild(button);
+             });
+         }
+
+        function updateNavigatorButtons() {
+            if (!navigatorGrid) return;
+            const buttons = navigatorGrid.querySelectorAll('button');
+            buttons.forEach(button => {
+                const index = parseInt(button.dataset.questionIndex, 10);
+                button.classList.remove('nav-answered', 'nav-current', 'nav-flagged');
+                if (userAnswers[index]) button.classList.add('nav-answered');
+                if (index === currentQuestionIndex) button.classList.add('nav-current');
+                if (flaggedQuestions[index]) button.classList.add('nav-flagged');
+            });
+        }
+
+         function updateNavigatorHighlight() {
+             if (!navigatorGrid) return;
+             const buttons = navigatorGrid.querySelectorAll('button');
+             buttons.forEach(button => {
+                 const index = parseInt(button.dataset.questionIndex, 10);
+                 button.classList.remove('nav-current');
+                 if (index === currentQuestionIndex) button.classList.add('nav-current');
+             });
+         }
+
+        function showResultsScreen() {
+            examEndTime = examEndTime || new Date();
+            recordTimeSpent(currentQuestionIndex);
+            stopTimer();
+
+            examScreen.classList.add('hidden');
+            reviewScreen.classList.add('hidden');
+            reviewScreen.classList.remove('flex');
+            resultsScreen.classList.remove('hidden');
+            resultsScreen.classList.add('flex');
+            setupScreen.classList.add('hidden');
+            appContainer.classList.add('flex', 'flex-col');
+
+            let score = 0;
+            resultsDetailsGrid.innerHTML = ''; 
+
+            questions.forEach((qData, index) => {
+                const userAnswer = userAnswers[index];
+                const correctAnswer = qData.correctAnswer;
+                const isCorrect = userAnswer !== null && userAnswer !== undefined && userAnswer === correctAnswer;
+                if (isCorrect) score++;
+
+                const timeSpentMs = questionTimes[index] || 0;
+                const timeSpentSec = Math.round(timeSpentMs / 1000);
+
+                const summaryItem = document.createElement('div');
+                summaryItem.classList.add('result-summary-item');
+
+                const summaryBox = document.createElement('div');
+                summaryBox.classList.add('result-summary-box');
+                if (userAnswer === null || userAnswer === undefined) {
+                    summaryBox.classList.add('not-answered-box');
+                } else {
+                    summaryBox.classList.add(isCorrect ? 'correct-box' : 'incorrect-box');
+                }
+                summaryBox.dataset.index = index;
+                summaryBox.title = `Click to review Question ${index + 1}`;
+
+                const timeDisplay = document.createElement('span');
+                timeDisplay.classList.add('time-display-in-box');
+                timeDisplay.textContent = `${timeSpentSec}s`;
+                summaryBox.appendChild(timeDisplay);
+
+                const numberLabel = document.createElement('div');
+                numberLabel.classList.add('question-number-label');
+                numberLabel.textContent = `Q${index + 1}`;
+
+                summaryBox.addEventListener('click', () => {
+                    revisitQuestionFromResults(index);
+                });
+
+                summaryItem.appendChild(summaryBox);
+                summaryItem.appendChild(numberLabel);
+                resultsDetailsGrid.appendChild(summaryItem);
+            });
+
+            scoreEl.textContent = score;
+            totalQuestionsResultsEl.textContent = questions.length;
+            const timeDiff = examEndTime - examStartTime;
+            timeTakenEl.textContent = formatTimeDifference(timeDiff);
+        }
+
+        function revisitQuestionFromResults(index) {
+            resultsScreen.classList.add('hidden');
+            resultsScreen.classList.remove('flex');
+            showExamScreen();
             loadQuestion(index, true);
             backToResultsButton.classList.remove('hidden');
         }
