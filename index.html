@@ -827,7 +827,7 @@
             else if (!isReviewingFromResults) {
                  recordTimeSpent(currentQuestionIndex);
                  if (currentQuestionIndex === questions.length - 1) {
-                     stopTimer();
+                     // Don't stop the timer when showing review screen
                      showReviewScreen();
                  } else if (currentQuestionIndex < questions.length - 1) {
                      loadQuestion(currentQuestionIndex + 1);
@@ -874,14 +874,14 @@
         }
 
         function showReviewScreen(filterFlagged = false) {
-            recordTimeSpent(currentQuestionIndex);
-            stopTimer();
             examScreen.classList.add('hidden');
             reviewScreen.classList.remove('hidden');
             reviewScreen.classList.add('flex');
             resultsScreen.classList.add('hidden');
+            resultsScreen.classList.remove('flex');
             setupScreen.classList.add('hidden');
             appContainer.classList.add('flex', 'flex-col');
+            
             reviewGrid.innerHTML = '';
             questions.forEach((_, index) => {
                  if (filterFlagged && !flaggedQuestions[index]) {
@@ -1019,6 +1019,7 @@
             resultsScreen.classList.remove('flex');
             showExamScreen();
             loadQuestion(index, true);
+            backToResultsButton.classList.remove('hidden');
         }
 
         function endExamAndShowResults() {
@@ -1027,7 +1028,6 @@
         }
          function handleEndExamFooterClick() {
              recordTimeSpent(currentQuestionIndex);
-             stopTimer();
              showReviewScreen();
          }
 
@@ -1329,7 +1329,10 @@
         prevButton.addEventListener('click', showPrevQuestion);
         endExamButton.addEventListener('click', endExamAndShowResults);
         endExamButtonFooter.addEventListener('click', handleEndExamFooterClick);
-        backToResultsButton.addEventListener('click', () => { isReviewingFromResults = false; showResultsScreen(); });
+        backToResultsButton.addEventListener('click', () => { 
+            isReviewingFromResults = false; 
+            showResultsScreen(); 
+        });
         navigatorButton.addEventListener('click', () => { recordTimeSpent(currentQuestionIndex); updateNavigatorButtons(); navigatorModal.classList.remove('hidden'); navigatorModal.classList.add('flex'); });
         closeModalButton.addEventListener('click', () => { navigatorModal.classList.remove('flex'); navigatorModal.classList.add('hidden'); if (!isReviewingFromResults) questionStartTime = Date.now(); });
         navigatorModal.addEventListener('click', (event) => { if (event.target === navigatorModal) closeModalButton.click(); });
